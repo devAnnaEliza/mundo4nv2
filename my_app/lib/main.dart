@@ -34,8 +34,7 @@ class HomePage extends StatelessWidget {
       _buildTextSection(),
     ],
   ),
-),
-bottomNavigationBar: _buildBottomNavigationBar(context), 
+), 
     );
   }
 
@@ -45,7 +44,7 @@ bottomNavigationBar: _buildBottomNavigationBar(context),
         // Navegar para a página de destaque
       },
       child: Image.asset(
-        'imagens/banffnationalpark.jpg',
+        'imagens/lake.jpg',
         width: MediaQuery.of(context).size.width,
         height: 240,
         fit: BoxFit.cover,
@@ -129,30 +128,6 @@ bottomNavigationBar: _buildBottomNavigationBar(context),
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildBottomNavigationBar(BuildContext context) {
-    return BottomNavigationBar(
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.explore),
-          label: 'Locais',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.card_travel),
-          label: 'Roteiros',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.contact_phone),
-          label: 'Reservas',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.info),
-          label: 'Sobre Nós',
-        ),
-      ],
-      selectedItemColor: Theme.of(context).primaryColor,
     );
   }
 }
