@@ -1,11 +1,12 @@
+// ignore_for_file: use_super_parameters, prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:appviagens/teladestinos.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return [
       Destino(nome: "Maceió", descricao: "Conhecida como Cidade-Sorriso ou Paraíso das Águas, suas belezas naturais atraem turistas do mundo inteiro.", imageUrl: "https://maceioalgovbr.dhost.cloud/uploads/imagens/26-07-23-Ponta-Verde-Maceio-Orla-Praia-SEMTUR-foto-Jonathan-Lins-7.jpg"),
       Destino(nome: "New York", descricao: "Muito famosa em todo mundo por causa da Estátua da Liberdade, a cidade de Nova York também é conhecida como Big Apple.", imageUrl: "https://sophiamartins.com.br/wp-content/uploads/2023/05/Best-Views-of-New-York-City.jpg.optimal.jpg"),
-      Destino(nome: "Cancún", descricao: "Famosa por suas praias paradisíacas e sua cultura ancestral preservada em sítios arqueológicos, a cidade de Cancún é o equilíbrio perfeito entre a agitação e a calmaria.", imageUrl: "https://ns.clubmed.com/dream/PRODUCT_CENTER/DESTINATIONS/SUN/Caraibes___Amerique_du_Nord/Mexique/Cancun/14401-e5rmtcnl7f-swhr.jpg"),
+      Destino(nome: "Cancún", descricao: "Com praias paradisíacas e sua cultura ancestral preservada em sítios arqueológicos, Cancún é o equilíbrio perfeito entre a agitação e a calmaria.", imageUrl: "https://ns.clubmed.com/dream/PRODUCT_CENTER/DESTINATIONS/SUN/Caraibes___Amerique_du_Nord/Mexique/Cancun/14401-e5rmtcnl7f-swhr.jpg"),
       Destino(nome: "Veneza", descricao: "Situada no norte da Itália, Veneza é formada por mais de 100 pequenas ilhas.", imageUrl: "https://img.freepik.com/fotos-premium/imagem-da-paisagem-urbana-de-veneza-italia-a-noite_255553-2428.jpg"),
-      Destino(nome: "Cairo", descricao: "Capital do Egito e localizada às margens do rio Nilo, a cidade co Cairo tem como atração as famosas pirâmides de Gizé.", imageUrl: "https://www.weseektravel.com/wp-content/uploads/2023/03/where-to-stay-in-cairo-1.jpg"),
-      Destino(nome: "Buenos Aires", descricao: "Segunda maior área metropolitana da América do Sul, é conhecida por sua arquitetura com estilo europeu.", imageUrl: "https://www.dicasdeviagem.com/wp-content/uploads/2019/05/puerto-madero.jpg"),
+      Destino(nome: "Cairo", descricao: "Capital do Egito e localizada às margens do rio Nilo, a cidade do Cairo tem como atração as famosas pirâmides de Gizé.", imageUrl: "https://www.weseektravel.com/wp-content/uploads/2023/03/where-to-stay-in-cairo-1.jpg"),
+      Destino(nome: "Buenos Aires", descricao: "Segunda maior área metropolitana da América do Sul, é conhecida por sua arquitetura e sua riquissíma cultura.", imageUrl: "https://www.dicasdeviagem.com/wp-content/uploads/2019/05/puerto-madero.jpg"),
       Destino(nome: "Pequim", descricao: "Com 3 milênios de história, a capital chinesa é conhecida tanto por sua arquitetura moderna quanto por seus templos antigos.", imageUrl: "https://www.cvc.com.br/dicas-de-viagem/wp-content/uploads/2018/04/topo-pequim-templo-e-predios-credito-thinkstock-491990549.jpg"),
     ];
   }
@@ -77,8 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
             tabs: [
               Tab(icon: Icon(Icons.map), text: "Destinos"),
               Tab(icon: Icon(Icons.card_travel), text: "Roteiros"),
-              Tab(icon: Icon(Icons.contact_mail), text: "Fale Conosco"),
-              Tab(icon: Icon(Icons.info_outline), text: "Sobre Nós"),
+              Tab(icon: Icon(Icons.contact_mail), text: "Contate-nos"),
+              Tab(icon: Icon(Icons.info_outline), text: "Quem somos"),
             ],
           ),
           actions: [
@@ -240,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         ListTile(
           leading: Icon(Icons.phone),
-          title: Text("Contato"),
+          title: Text("WhatsApp"),
           subtitle: Text("+55 21 00000-0000"),
         ),
       ],
@@ -254,12 +255,12 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Sobre Nós",
+            "Quem somos",
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 16),
           Text(
-            "Nós da Explore Mundo somos uma empresa de viagens que tem como objetivo principal proporcionar experiências únicas para nossos clientes. Queremos ensinar a diferença entre passeios e roteiros de viagens. E agora, também podemos ser encontrados na sua loja de aplicativos favorita.",
+            "Nós da Explore Mundo, somos uma empresa de viagens que tem como objetivo principal proporcionar experiências únicas para nossos clientes. Queremos mostrar que toda viagem pode ser excepcional. Agora, também estamos na sua loja de aplicativos favorita.",
             style: TextStyle(fontSize: 16),
           ),
         ],
