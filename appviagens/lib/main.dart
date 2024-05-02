@@ -34,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Conhecida como Cidade-Sorriso ou Paraíso das Águas, suas belezas naturais atraem turistas do mundo inteiro.",
       imageUrl:
           "https://maceioalgovbr.dhost.cloud/uploads/imagens/26-07-23-Ponta-Verde-Maceio-Orla-Praia-SEMTUR-foto-Jonathan-Lins-7.jpg",
+      preco: 1000.00
     ),
     Destino(
       nome: "New York",
@@ -41,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Muito famosa em todo mundo por causa da Estátua da Liberdade, a cidade de Nova York também é conhecida como Big Apple.",
       imageUrl:
           "https://sophiamartins.com.br/wp-content/uploads/2023/05/Best-Views-of-New-York-City.jpg.optimal.jpg",
+      preco: 1000.00
     ),
     Destino(
       nome: "Cancún",
@@ -48,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Com praias paradisíacas e sua cultura ancestral preservada em sítios arqueológicos, Cancún é o equilíbrio perfeito entre a agitação e a calmaria.",
       imageUrl:
           "https://ns.clubmed.com/dream/PRODUCT_CENTER/DESTINATIONS/SUN/Caraibes___Amerique_du_Nord/Mexique/Cancun/14401-e5rmtcnl7f-swhr.jpg",
+      preco: 1000.00
     ),
     Destino(
       nome: "Veneza",
@@ -55,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Situada no norte da Itália, Veneza é formada por mais de 100 pequenas ilhas.",
       imageUrl:
           "https://img.freepik.com/fotos-premium/imagem-da-paisagem-urbana-de-veneza-italia-a-noite_255553-2428.jpg",
+      preco: 1000.00
     ),
     Destino(
       nome: "Cairo",
@@ -62,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Capital do Egito e localizada às margens do rio Nilo, a cidade do Cairo tem como atração as famosas pirâmides de Gizé.",
       imageUrl:
           "https://www.weseektravel.com/wp-content/uploads/2023/03/where-to-stay-in-cairo-1.jpg",
+      preco: 1000.00
     ),
     Destino(
       nome: "Buenos Aires",
@@ -69,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Segunda maior área metropolitana da América do Sul, é conhecida por sua arquitetura e sua riquíssima cultura.",
       imageUrl:
           "https://www.dicasdeviagem.com/wp-content/uploads/2019/05/puerto-madero.jpg",
+      preco: 1000.00
     ),
     Destino(
       nome: "Pequim",
@@ -76,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
           "Com 3 milênios de história, a capital chinesa é conhecida tanto por sua arquitetura moderna quanto por seus templos antigos.",
       imageUrl:
           "https://www.cvc.com.br/dicas-de-viagem/wp-content/uploads/2018/04/topo-pequim-templo-e-predios-credito-thinkstock-491990549.jpg",
+      preco: 1000.00
     ),
   ];
 
@@ -88,8 +95,8 @@ class _HomeScreenState extends State<HomeScreen> {
           title: const Text('Explore Mundo'),
           bottom: const TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.explore), text: "Destinos"),
-              Tab(icon: Icon(Icons.work), text: "Roteiros"),
+              Tab(icon: Icon(Icons.explore_outlined), text: "Destinos"),
+              Tab(icon: Icon(Icons.work_outline), text: "Roteiros"),
               Tab(icon: Icon(Icons.chat_bubble_outline), text: "Contate-nos"),
               Tab(icon: Icon(Icons.person_outline_rounded), text: "Quem somos"),
             ],
@@ -208,6 +215,7 @@ class _HomeScreenState extends State<HomeScreen> {
               "Brasil",
               "Argentina"
             ],
+            price: 5000.00
           ),
           _buildPackageTile(
             title: "Roteiro Ásia",
@@ -221,6 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
               "Indonésia",
               "Índia"
             ],
+            price: 5000.00
           ),
           _buildPackageTile(
             title: "Roteiro Europa + África",
@@ -234,6 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
               "Egito",
               "África do Sul"
             ],
+            price: 5000.00
           ),
         ],
       ),
@@ -241,49 +251,51 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildPackageTile({
-    required String title,
-    required String subtitle,
-    required String thumbnailUrl,
-    required List<String> destinations,
-  }) {
-    return ListTile(
-      leading: Container(
-        width: 100,
-        height: 60,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
-          image: DecorationImage(
-            image: NetworkImage(thumbnailUrl),
-            fit: BoxFit.cover,
-          ),
+  required String title,
+  required String subtitle,
+  required String thumbnailUrl,
+  required List<String> destinations,
+  required double price, // Adicionando o parâmetro de preço
+}) {
+  return ListTile(
+    leading: Container(
+      width: 100,
+      height: 60,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8.0),
+        image: DecorationImage(
+          image: NetworkImage(thumbnailUrl),
+          fit: BoxFit.cover,
         ),
       ),
-      title: Text(title),
-      subtitle: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(subtitle),
-          const SizedBox(height: 4),
-          Text(
-            "Paradas inclusas:",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: destinations.map((destination) {
-              return Row(
-                children: [
-                  Icon(Icons.local_airport_outlined, size: 16),
-                  const SizedBox(width: 4),
-                  Text(destination),
-                ],
-              );
-            }).toList(),
-          ),
-        ],
-      ),
-      onTap: () {},
-    );
+    ),
+    title: Text(title),
+    subtitle: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(subtitle),
+        SizedBox(height: 4),
+        Text(
+          "Preço: \$${price.toStringAsFixed(2)}", // Exibindo o preço formatado
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        Text("Paradas inclusas:"),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: destinations.map((destination) {
+            return Row(
+              children: [
+                Icon(Icons.airplanemode_active, size: 16),
+                SizedBox(width: 4),
+                Text(destination),
+              ],
+            );
+          }).toList(),
+        ),
+      ],
+    ),
+    onTap: () {},
+  );
   }
 
   Widget buildContactTab() {
@@ -325,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           const SizedBox(height: 16),
           Text(
-            "Nós da Explore Mundo, somos uma empresa de viagens que tem como objetivo principal proporcionar experiências únicas para nossos clientes. Queremos mostrar que toda viagem pode ser excepcional. Agora, também estamos na sua loja de aplicativos favorita.",
+            "Somos uma empresa de viagens que tem como objetivo principal proporcionar experiências únicas para nossos clientes. Queremos mostrar que toda viagem pode ser excepcional. Agora, também estamos na sua loja de aplicativos favorita.",
             style: TextStyle(fontSize: 16),
           ),
         ],
@@ -404,11 +416,13 @@ class Destino {
   final String nome;
   final String descricao;
   final String imageUrl;
+  final double preco; // Adicionando o campo de preço
 
   Destino({
     required this.nome,
     required this.descricao,
     required this.imageUrl,
+    required this.preco,
   });
 }
 
